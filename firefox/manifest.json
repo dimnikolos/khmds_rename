@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "ΚΗΜΔΣ Auto",
+  "version": "1.0",
+  "description": "Βοηθήματα για το ΚΗΜΔΣ",
+  "permissions": [
+    "downloads",
+    "webRequest",
+    "webRequestBlocking",
+    "*://cerpp.eprocurement.gov.gr/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://cerpp.eprocurement.gov.gr/*",
+        "file:///*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
