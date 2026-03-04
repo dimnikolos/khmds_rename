@@ -1,28 +1,44 @@
 {
-  "manifest_version": 2,
-  "name": "ΚΗΜΔΣ Auto",
+  "manifest_version": 3,
+  "name": "ΚΗΜΔΣ Rename",
   "version": "1.0",
-  "description": "Βοηθήματα για το ΚΗΜΔΣ",
+  "description": "Μετονομάζει τα αρχεία που κατεβάζεις από το ΚΗΜΔΣ με τον ΑΔΑΜ",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "kimdis-rename@dnikolos",
+      "strict_min_version": "109.0"
+    }
+  },
+
   "permissions": [
     "downloads",
     "webRequest",
-    "webRequestBlocking",
+    "webRequestBlocking"
+  ],
+
+  "host_permissions": [
     "*://cerpp.eprocurement.gov.gr/*"
   ],
+
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "service_worker": "background.js"
   },
+
   "content_scripts": [
     {
       "matches": [
-        "*://cerpp.eprocurement.gov.gr/*",
-        "file:///*"
+        "*://cerpp.eprocurement.gov.gr/*"
       ],
-      "js": [
-        "content.js"
-      ]
+      "js": ["content.js"]
     }
-  ]
+  ],
+
+  "action": {
+    "default_title": "ΚΗΜΔΣ Rename"
+  },
+
+  "data_collection": {
+    "collects": false
+  }
 }
